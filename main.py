@@ -2,6 +2,13 @@ from stack import Stack
 
 
 def check_brackets(brackets, pairs):
+    """
+    Проверяет сбалансированность строк.
+    :param brackets: str - сторока для проверки
+    :param pairs: dict - словарь в формате: {'Открывающий символ': 'Закрывающий символ'}
+    :return: bool
+
+    """
     if len(brackets) % 2 != 0:
         return 'Несбалансировано'
     else:
@@ -11,7 +18,7 @@ def check_brackets(brackets, pairs):
                 stack.push(bracket)
             else:
                 stack.pop()
-    return 'Сбалансировано' if stack.is_empty() else 'Несбалансировано'
+    return stack.is_empty()
 
 
 if __name__ == '__main__':
@@ -30,4 +37,4 @@ if __name__ == '__main__':
         '[[{())}]',
     ]
     for data in test_data:
-        print(check_brackets(data, PAIRS))
+        print('Сбалансировано' if check_brackets(data, PAIRS) else 'Несбалансировано')
