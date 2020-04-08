@@ -6,15 +6,15 @@ class Stack:
         return not bool(self.stack)
 
     def push(self, element):
-        self.stack.insert(0, element)
+        self.stack.append(element)
 
     def pop(self):
         if not self.is_empty():
-            return self.stack.pop(0)
+            return self.stack.pop()
 
     def peek(self):
         if not self.is_empty():
-            return self.stack[0]
+            return self.stack[self.size() - 1]
 
     def size(self):
         return len(self.stack)
