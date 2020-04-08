@@ -14,7 +14,7 @@ def check_brackets(brackets, pairs):
     else:
         stack = Stack()
         for bracket in brackets[::-1]:
-            if not stack.size or not stack.peek() or stack.peek() != pairs.get(bracket):
+            if not stack.size() or not stack.peek() or stack.peek() != pairs.get(bracket):
                 stack.push(bracket)
             else:
                 stack.pop()
